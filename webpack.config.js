@@ -7,6 +7,7 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 const path = require('path');
 
 const config = {
+	devTool: ["source-map"],
 	entry: [
 		"./app/index.js"
 	],
