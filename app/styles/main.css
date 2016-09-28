@@ -8,6 +8,13 @@ html, body {
 .header {
 	height: 50px;
 	width: 100%;	
+	background-color: #FF5733;
+	color: #ffffff;
+	padding: 8px;
+}
+
+.header > h3 {
+	line-height: 34px;
 }
 
 .body {
@@ -23,4 +30,13 @@ html, body {
 
 .text-center {
 	text-align: 'center';
+}
+
+.no-padding-margin{
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.form-control {
+	margin-right: 10px;
 }

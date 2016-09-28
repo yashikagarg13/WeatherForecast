@@ -1,13 +1,12 @@
 import React, {Component} from "react";
-require("../styles/main.css");
 
-export default class Home extends Component {
+export default class Header extends Component {
 	render () {
 		return (
-			<div className="col-sm-offset-4 col-sm-4 text-center">
-				<h1>Enter a City and State</h1>
-				<div className="col-sm-6 col-sm-offset-3">
-					<form>
+			<div className="header clearfix">
+				<h3 className="no-padding-margin pull-left">Weather Forecast</h3>
+				<div className="pull-right">
+					<form className="form-inline">
 						<div className="form-group">
 							<input type="text" placeholder="Enter city or state" className="form-control"/>
 						</div>
