@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 require("../styles/main.css");
+import CityFormContainer from "../containers/CityFormContainer";
 
 export default class Home extends Component {
 	render () {
@@ -7,12 +8,7 @@ export default class Home extends Component {
 			<div className="col-sm-offset-4 col-sm-4 text-center">
 				<h1>Enter a City and State</h1>
 				<div className="col-sm-6 col-sm-offset-3">
-					<form>
-						<div className="form-group">
-							<input type="text" placeholder="Enter city or state" className="form-control"/>
-						</div>
-						<button type="submit" className="btn btn-success">Get Weather</button>
-					</form>
+					<CityFormContainer />
 				</div>
 			</div>
 		);
