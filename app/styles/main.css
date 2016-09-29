@@ -40,3 +40,7 @@ html, body {
 .form-control {
 	margin-right: 10px;
 }
+
+.jumbotron { 
+	background: transparent;
+}

@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from "react";
 import CityForm from "../components/CityForm";
-import APIHelpers from "../helpers/api";
 
 export default class CityFormContainer extends Component {
 	static defaultProps = {
@@ -21,13 +20,6 @@ export default class CityFormContainer extends Component {
 	handleSubmit () {
 		let city = this.state.city;
 		this.context.router.push("/forecast/" + city);
-		/*APIHelpers.getCurrentWeather(this.state.city)
-			.then((data) => {
-				console.log(data);
-			})
-			.catch((error) => {
-				console.log("error", error);
-			});*/
 	}
 	render () {
 		return (
