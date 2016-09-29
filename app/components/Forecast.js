@@ -1,35 +1,33 @@
-import React, {Component} from "react";
-import Loading from "./Loading";
-import APIHelpers from "../helpers/api";
+import React, {PropTypes} from "react";
+import moment from "moment";
 
-export default class Forecast extends Component {
-	constructor (props) {
-		super(props);
-		this.state = {
-			isLoading: true,
-			currentWeatherInfo: {},
-		};
-	}
-	componentDidMount() {
-		APIHelpers.getCurrentWeather(this.state.city)
-		.then((data) => {
-			this.setState({
-				isLoading: false,
-				currentWeatherInfo: data,
-			});
-			console.log(data);
-		})
-		.catch((error) => {
-			console.log("error", error);
-		});
-	}
-	render () {
-		if (this.state.isLoading) {
-			return <Loading />;
-		}
+export default function Forecast (props) {
+	return (
+		<div className="col-sm-12 text-center">
+			<h1 className="text-capitalize margin-top">{props.city}</h1>
+			<div className="margin-top">
+				{props.currentWeatherInfo.map(day => 
+					<ForecastDay 
+						key={day.dt} 
+						date={day.dt_txt} 
+						icon={day.weather[0].icon} />)}
+			</div>
+		</div>
+	);
+}
 
-		return (
-			<div>Forecast Component</div>
-		);
-	}
+function ForecastDay (props) {
+	const imgBaseUrl = "http://openweathermap.org/img/w/";
+	const dateStr = moment(props.date).format("dddd, MMM D");
+	return (
+		<div className="day col-sm-3">
+			<img src={imgBaseUrl + props.icon + '.png'} />
+			<p><strong>{dateStr}</strong></p>
+		</div>
+	);
+}
+
+Forecast.propTypes = {
+	city: PropTypes.string.isRequired,
+	currentWeatherInfo: PropTypes.array.isRequired,
 }

@@ -28,8 +28,12 @@ html, body {
 	padding-top: 300px;
 }
 
-.text-center {
-	text-align: 'center';
+.day {
+	padding: 20px;
+}
+
+.margin-top {
+	margin-top: 50px;
 }
 
 .no-padding-margin{
