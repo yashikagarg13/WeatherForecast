@@ -8,7 +8,7 @@ export default class Main extends Component {
 		return (
 			<div>
 				<Header />
-				<div className="body">{this.props.children}</div>
+				<div>{this.props.children}</div>
 			</div>
 		);
 	}

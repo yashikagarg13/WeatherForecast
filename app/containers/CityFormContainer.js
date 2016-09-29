@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, PropTypes} from "react";
 import CityForm from "../components/CityForm";
 import APIHelpers from "../helpers/api";
 
@@ -19,13 +19,15 @@ export default class CityFormContainer extends Component {
 		});
 	}
 	handleSubmit () {
-		APIHelpers.getCurrentWeather(this.state.city)
+		let city = this.state.city;
+		this.context.router.push("/forecast/" + city);
+		/*APIHelpers.getCurrentWeather(this.state.city)
 			.then((data) => {
 				console.log(data);
 			})
 			.catch((error) => {
 				console.log("error", error);
-			})
+			});*/
 	}
 	render () {
 		return (
@@ -37,3 +39,7 @@ export default class CityFormContainer extends Component {
 		);
 	}
 }
+
+CityFormContainer.contextTypes = {
+	router: PropTypes.object.isRequired
+};
