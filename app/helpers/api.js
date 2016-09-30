@@ -15,7 +15,4 @@ export default {
 			.then(response => response.data)
 			.catch(error => console.log("error", error));
 	},
-	getImageLink (icon) {
-		return "http://openweathermap.org/img/w/" + icon + ".png";
-	}
 }
