@@ -11,8 +11,11 @@ export default {
 			.catch(error => console.log("error", error));
 	},
 	getWeatherForecast (city, days) {
-		return Axios.get(baseUrl + "forecast?q=" + city + "&cnt=" + days + param)
+		return Axios.get(baseUrl + "forecast/daily?q=" + city + "&cnt=" + days + param)
 			.then(response => response.data)
 			.catch(error => console.log("error", error));
+	},
+	getImageLink (icon) {
+		return "http://openweathermap.org/img/w/" + icon + ".png";
 	}
 }

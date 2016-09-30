@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import moment from "moment";
 
 import Loading from "../components/Loading";
 import Forecast from "../components/Forecast";
@@ -8,19 +7,19 @@ import APIHelpers from "../helpers/api";
 export default class ForecastContainer extends Component {
 	constructor (props) {
 		super(props);
+		this.numberOfDays = 5;
 		this.state = {
 			isLoading: true,
-			currentWeatherInfo: [],
+			weatherForecast: [],
 		};
 	}
 	componentDidMount() {
-		APIHelpers.getWeatherForecast(this.props.params.city, 5)
-		.then((data) => {
+		APIHelpers.getWeatherForecast(this.props.params.city, this.numberOfDays)
+		.then((data) => { console.log(data);
 			this.setState({
 				isLoading: false,
-				currentWeatherInfo: data.list,
+				weatherForecast: data.list,
 			});
-			console.log(data);
 		})
 		.catch((error) => {
 			console.log("error", error);
@@ -34,7 +33,7 @@ export default class ForecastContainer extends Component {
 		return (
 			<Forecast 
 				city={this.props.params.city}
-				currentWeatherInfo={this.state.currentWeatherInfo} />
+				weatherForecast={this.state.weatherForecast} />
 		);
 	}
 }
